@@ -11,17 +11,27 @@
       margin: 0;
       overflow: hidden;
     }
+
     h1 {
-      margin-top: 80px;
+      margin-top: 70px;
       font-size: 42px;
-      color: #fff;
+      color: white;
       text-shadow: 2px 2px 5px #ff4d6d;
     }
+
     p {
       color: white;
       font-size: 20px;
       margin: 10px 20px;
     }
+
+    video {
+      border-radius: 20px;
+      margin-top: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      pointer-events: none; /* allows buttons to be clickable */
+    }
+
     button {
       padding: 15px 35px;
       font-size: 22px;
@@ -30,40 +40,45 @@
       border: none;
       cursor: pointer;
       transition: 0.2s;
+      position: relative;
+      z-index: 10;
     }
+
     #yes {
       background-color: #ff4d6d;
       color: white;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
+
     #yes:hover {
       transform: scale(1.1);
     }
+
     #no {
       background-color: #6c757d;
       color: white;
       position: absolute;
+      z-index: 10;
     }
+
     .heart {
       position: fixed;
       top: -10px;
       font-size: 24px;
       animation: fall linear infinite;
     }
+
     @keyframes fall {
-      to {
-        transform: translateY(110vh);
-      }
+      to { transform: translateY(110vh); }
     }
   </style>
 </head>
+
 <body>
 
   <h1>Ishika, will you be my Valentine? 💘</h1>
   <p>I promise to share fries, memes along with LOADS OF SLAPS AND KISSES 😘</p>
 
-  <!-- VIDEO ONLY -->
-  <video width="300" autoplay loop muted playsinline style="border-radius:20px; margin-top:20px; box-shadow:0 10px 25px rgba(0,0,0,0.3);">
+  <video width="300" autoplay loop muted playsinline>
     <source src="WhatsApp Video 2026-02-01 at 19.54.24.mp4" type="video/mp4">
   </video>
 
@@ -86,13 +101,12 @@
     noBtn.addEventListener('mouseover', () => {
       moveButton();
       speed += 0.4;
-      noBtn.style.transform = `scale(${1 + speed * 0.05}) rotate(${Math.random()*20-10}deg)`;
+      noBtn.style.transform = `scale(${1 + speed * 0.05}) rotate(${Math.random()*30-15}deg)`;
     });
 
     noBtn.addEventListener('click', (e) => {
       e.preventDefault();
       moveButton();
-      noBtn.style.transform = `rotate(${Math.random()*40-20}deg)`;
     });
 
     function showLove() {
